@@ -1,0 +1,26 @@
+docker操作笔记
+
+# docker安装后，操作都需要加sudo，此操作后不需要添加sudo了。
+sudo groupadd docker
+sudo gpasswd -a vagrant docker
+sudo service docker restart  再退出虚拟机，重新连接就行了。
+
+# 列出虚拟机镜像
+docker image ls
+
+# 从镜像仓库中拉取镜像
+docker pull hello-world
+
+# 根据dockerfile文件生成镜像
+docker build -t passerby/hello-world .
+
+# 根据镜像ID查看镜像历史信息
+docker history 4ec8a5d3d2ee
+
+# 运行镜像
+docker run passerby/hello-world
+docker run -it passerby/hello-world 交互式运行镜像
+
+# 查看所有容器的状态
+docker container ls -a
+
